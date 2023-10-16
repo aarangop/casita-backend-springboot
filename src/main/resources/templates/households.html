@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Casita Households</title>
+</head>
+<body>
+<h1>Households</h1>
+<table>
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>Street</th>
+        <th>House Number</th>
+        <th>City</th>
+        <th>Country</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="household:${households}">
+        <td th:text="${household.id}"/>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
