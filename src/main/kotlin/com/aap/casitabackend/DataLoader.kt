@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component
 class DataLoader(
     private val usersRepository: UsersRepository,
     private val householdMembersRepository: HouseholdMembersRepository,
+    private val householdsService: HouseholdsService,
     private val householdsRepository: HouseholdsRepository
 ) {
 
@@ -28,23 +29,23 @@ class DataLoader(
             password = "elmuergano"
         )
 
-        if (usersRepository.findById(muergano.id).isEmpty) {
-            usersRepository.save(muergano)
-        }
+        usersRepository.save(muergano)
 
+        // Load initial household
         var household = Household(
             id = "bluecher3a",
             street = "Blücherstr.",
             houseNumber = "3a",
             zipCode = "38102",
             city = "Braunschweig",
-            country = "Germany",
+            country = "Germany"
         )
+        household = householdsRepository.save(household)
 
-        householdsRepository.save(household)
+        // Create householdMember for user `muergano`
+        var householdMember = HouseholdMember("muergano_bluecher3a", muergano)
+        householdMembersRepository.save(householdMember)
 
-        var householdMember = HouseholdMember(muergano)
-
-        household.householdMembers = listOf(householdMember)
+        householdsService.addHouseholdMember(household.id, householdMember)
     }
 }

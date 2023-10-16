@@ -1,6 +1,7 @@
 package com.aap.casitabackend.entities
 
 import org.springframework.data.annotation.Id
+import org.springframework.data.mongodb.core.mapping.DBRef
 
 data class Household(
     @Id
@@ -10,5 +11,6 @@ data class Household(
     val zipCode: String,
     val city: String,
     val country: String,
-    var householdMembers: List<HouseholdMember>? = null
+    @DBRef
+    var householdMembers: MutableList<HouseholdMember> = mutableListOf()
 )

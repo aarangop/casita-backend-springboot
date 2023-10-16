@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController
 import java.util.*
 
 @RestController
-@RequestMapping("household_members")
+@RequestMapping("/api/household_members")
 class HouseholdMembersController(private val householdMembersRepository: HouseholdMembersRepository) {
     @GetMapping
     fun getAllHouseholdMembers(): Iterable<HouseholdMember> {
