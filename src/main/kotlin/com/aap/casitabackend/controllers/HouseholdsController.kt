@@ -27,5 +27,13 @@ class HouseholdsController(
     @PutMapping("/{id}")
     fun putHousehold(@PathVariable id: String, @RequestBody household: Household): ResponseEntity<Household> =
         householdsService.updateHousehold(id, household)
+
+    @PutMapping("/{id}/household_members")
+    fun updateHouseholdMembers(@PathVariable id: String, @RequestBody userIds: List<String>) =
+        householdsService.updateHouseholdMembers(id, userIds)
+
+    @DeleteMapping("/{id}")
+    fun deleteHousehold(@PathVariable id: String) = householdsRepository.deleteById(id)
+
 }
 

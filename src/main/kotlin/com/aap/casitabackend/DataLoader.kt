@@ -1,9 +1,7 @@
 package com.aap.casitabackend
 
 import com.aap.casitabackend.entities.Household
-import com.aap.casitabackend.entities.HouseholdMember
 import com.aap.casitabackend.entities.User
-import com.aap.casitabackend.services.HouseholdMembersService
 import com.aap.casitabackend.services.HouseholdsService
 import com.aap.casitabackend.services.UsersService
 import jakarta.annotation.PostConstruct
@@ -12,22 +10,33 @@ import org.springframework.stereotype.Component
 @Component
 class DataLoader(
     private val usersService: UsersService,
-    private val householdMembersService: HouseholdMembersService,
     private val householdsService: HouseholdsService,
 ) {
 
     @PostConstruct
     fun loadData() {
         // Save seed user
-        val muergano = User(
-            id = "elmuergano",
-            name = "Andrés",
-            lastName = "Arango Pérez",
-            nickname = "Muergano",
-            username = "muergano",
-            password = "elmuergano"
+        val users = listOf(
+            User(
+                id = "elmuergano",
+                name = "Andrés",
+                lastName = "Arango Pérez",
+                nickname = "Muergano",
+                username = "muergano",
+                password = "elmuergano",
+                email = "elmuergano@casita.com"
+            ),
+            User(
+                id = "muergana",
+                name = "Natalia",
+                lastName = "Sandoval Goebel",
+                nickname = "La Muergana",
+                username = "muergana",
+                password = "lamuergana",
+                email = "lamuergana@casita.com"
+            )
         )
-        usersService.saveUser(muergano)
+        usersService.saveUsers(users)
 
         // Save initial household
         var household = Household(
@@ -40,11 +49,7 @@ class DataLoader(
         )
         householdsService.saveHousehold(household)
 
-        // Create householdMember for user `muergano`
-        var householdMember = HouseholdMember("muergano_bluecher3a", muergano)
-        householdMembersService.saveHouseholdMember(householdMember)
-
         // Update household's members by adding the household member just created.
-        householdsService.addHouseholdMember(household.id, householdMember)
+        householdsService.updateHouseholdMembers(household.id, listOf(users[0].id))
     }
 }

@@ -12,5 +12,5 @@ data class Household(
     val city: String,
     val country: String,
     @DBRef
-    var householdMembers: MutableList<HouseholdMember> = mutableListOf()
+    var householdMembers: MutableList<User> = mutableListOf()
 )
