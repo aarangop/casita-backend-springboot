@@ -2,7 +2,6 @@ package com.aap.casitabackend.services
 
 import com.aap.casitabackend.entities.Household
 import com.aap.casitabackend.repositories.HouseholdsRepository
-import org.springframework.data.mongodb.core.MongoTemplate
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Service
@@ -10,7 +9,6 @@ import java.util.*
 
 @Service
 class HouseholdsService(
-    private val mongoTemplate: MongoTemplate,
     private val householdsRepository: HouseholdsRepository,
     private val usersService: UsersService
 ) {

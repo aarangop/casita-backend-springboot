@@ -15,7 +15,6 @@ class UsersService(
 ) {
     fun getUsers(): List<User> = usersRepository.findAll().toList()
     fun getUserById(id: String): Optional<User> = usersRepository.findById(id)
-    fun saveUser(user: User) = usersRepository.save(user)
     fun saveUsers(users: List<User>): List<User> = usersRepository.saveAll(users)
     fun findUsersByUsernameOrEmail(searchTerm: String): List<User> {
         val query = Query()
@@ -27,6 +26,5 @@ class UsersService(
         return template.find(query, User::class.java)
     }
 
-    fun findUserById(id: String): Optional<User> = usersRepository.findById(id)
     fun findUsersByIds(ids: List<String>): List<User> = usersRepository.findAllById(ids)
 }

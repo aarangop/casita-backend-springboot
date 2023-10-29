@@ -39,7 +39,7 @@ class DataLoader(
         usersService.saveUsers(users)
 
         // Save initial household
-        var household = Household(
+        val household = Household(
             id = "bluecher3a",
             street = "Blücherstr.",
             houseNumber = "3a",
