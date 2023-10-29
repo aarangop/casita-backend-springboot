@@ -33,8 +33,7 @@ class HouseholdsService(
             return ResponseEntity(HttpStatus.NOT_FOUND)
         if (household != null && users.isEmpty())
             return ResponseEntity(household, HttpStatus.OK)
-        if (household != null && users.isNotEmpty())
-            household.householdMembers = users.toMutableList()
+        household.householdMembers = users.toMutableList()
         return updateHousehold(householdId, household)
     }
 }

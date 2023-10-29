@@ -22,7 +22,7 @@ import java.util.*
 @WebMvcTest(UsersController::class)
 class UsersControllerTest(
     @Autowired val mockMvc: MockMvc,
-    @Autowired val jsonUsers: JacksonTester<List<User>>
+//    @Autowired val jsonUsers: JacksonTester<List<User>>
 ) {
 
     @MockkBean
