@@ -1,7 +1,6 @@
 package com.aap.casitabackend.controllers
 
 import com.aap.casitabackend.entities.Household
-import com.aap.casitabackend.repositories.HouseholdsRepository
 import com.aap.casitabackend.services.HouseholdsService
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
@@ -11,7 +10,6 @@ import java.util.*
 @RequestMapping("/api/households")
 @CrossOrigin(origins = ["http://localhost:3000"])
 class HouseholdsController(
-    private val householdsRepository: HouseholdsRepository,
     private val householdsService: HouseholdsService
 ) {
 
@@ -33,7 +31,7 @@ class HouseholdsController(
         householdsService.updateHouseholdMembers(id, userIds)
 
     @DeleteMapping("/{id}")
-    fun deleteHousehold(@PathVariable id: String) = householdsRepository.deleteById(id)
+    fun deleteHousehold(@PathVariable id: String) = householdsService.deleteHousehold(id)
 
 }
 

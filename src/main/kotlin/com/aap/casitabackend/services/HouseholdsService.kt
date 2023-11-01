@@ -36,4 +36,6 @@ class HouseholdsService(
         household.householdMembers = users.toMutableList()
         return updateHousehold(householdId, household)
     }
+
+    fun deleteHousehold(id: String) = householdsRepository.deleteById(id)
 }
