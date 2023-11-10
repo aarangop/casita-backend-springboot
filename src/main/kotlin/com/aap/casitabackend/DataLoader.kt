@@ -50,6 +50,6 @@ class DataLoader(
         householdsService.saveHousehold(household)
 
         // Update household's members by adding the household member just created.
-        householdsService.updateHouseholdMembers(household.id, listOf(users[0].id))
+        householdsService.updateHouseholdMembers(household.id!!, listOf(users[0].id))
     }
 }

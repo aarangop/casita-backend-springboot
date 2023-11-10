@@ -5,7 +5,7 @@ import com.aap.casitabackend.services.UsersService
 import org.springframework.web.bind.annotation.*
 
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/api/admin/users")
 @CrossOrigin(origins = ["http://localhost:3000"])
 class UsersController(private val usersService: UsersService) {
     /**

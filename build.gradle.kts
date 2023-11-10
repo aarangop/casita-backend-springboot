@@ -32,9 +32,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-webflux")
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0")
     implementation("org.springframework.vault:spring-vault-core:3.0.4")
-//    implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("org.springframework.boot:spring-boot-starter-oauth2-resource-server")
-//    implementation("org.springframework.boot:spring-boot-starter-oauth2-client")
     implementation("com.okta.spring:okta-spring-boot-starter:3.0.5")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
 

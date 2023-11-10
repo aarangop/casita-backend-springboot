@@ -5,7 +5,7 @@ import org.springframework.data.mongodb.core.mapping.DBRef
 
 data class Household(
     @Id
-    val id: String,
+    val id: String? = null,
     val street: String,
     val houseNumber: String,
     val zipCode: String,
