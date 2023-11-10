@@ -25,6 +25,8 @@ replay_pid*
 
 HELP.md
 .gradle
+.env
+prompting/api-key
 build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/

@@ -1,5 +1,6 @@
 package com.aap.casitabackend.entities
 
+import com.fasterxml.jackson.annotation.JsonIgnore
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
 
@@ -11,5 +12,8 @@ data class User(
     val lastName: String,
     val nickname: String,
     val username: String,
-    val password: String
+    @JsonIgnore
+    private val password: String?,
+    @JsonIgnore
+    val email: String
 )
